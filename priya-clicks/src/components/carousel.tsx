@@ -18,7 +18,7 @@ export default function Carousel() {
     }, [images.length]);
 
     return (
-        <div className="relative w-full h-180 overflow-hidden border-60 border-[#F4EFCA]">
+        <div className="relative w-full h-[40vh] md:h-[60vh] lg:h-[70vh] overflow-hidden border-20 border-[#F4EFCA]">
             <div 
                 className="flex transition-transform duration-900 ease-in-out h-full"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -28,7 +28,7 @@ export default function Carousel() {
                         <img 
                             src={image.src}
                             alt={`Carousel image ${index + 1}`}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                             style={{ objectPosition: 'center' }}
                         />
                     </div>
@@ -37,17 +37,17 @@ export default function Carousel() {
             {/* Navigation Arrows */}
             <button 
                 onClick={() => setCurrentIndex((prev) => (prev - 1 + images.length) % images.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 hover:bg-white/80 transition-colors"
+                className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-1 md:p-2 hover:bg-white/80 transition-colors"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
             <button 
                 onClick={() => setCurrentIndex((prev) => (prev + 1) % images.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-2 hover:bg-white/80 transition-colors"
+                className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/50 rounded-full p-1 md:p-2 hover:bg-white/80 transition-colors"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-6 md:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
             </button>
