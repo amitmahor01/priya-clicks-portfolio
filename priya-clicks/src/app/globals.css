@@ -7,13 +7,6 @@
   --secondary: #F4EFCA;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #1a1a1a;
@@ -31,10 +24,10 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary-dark transition-colors;
+    @apply bg-[#F66435] text-white hover:bg-[#D4532D] transition-colors;
   }
   
   .btn-secondary {
-    @apply bg-secondary text-gray-800 hover:bg-secondary-dark transition-colors;
+    @apply bg-[#F4EFCA] text-gray-800 hover:bg-[#E4DFBA] transition-colors;
   }
 }
