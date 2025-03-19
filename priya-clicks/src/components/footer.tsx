@@ -1,7 +1,7 @@
 export default function Footer(){
  return(
     <>
-    <div className="flex flex-wrap justify-around p-8 bg-primary border-t-1 border-gray-600">
+    <div className="flex flex-wrap justify-around p-8 bg-[#F4EFCA] border-t-1 border-gray-600">
         <div className="m-4 min-w-[200px]">
             <h3 className="mb-4 text-gray-800 font-extrabold">Contact Information</h3>
             <p className="my-2 text-gray-600">

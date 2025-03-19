@@ -1,30 +1,34 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Footer from './footer';
 import Carousel from './carousel';
+import infantPhotography from '../../assests/specialized/infantPhotography.webp';
+import portraitPhotography from '../../assests/specialized/portraitsPhotography.webp';
+import maternityPhotography from '../../assests/specialized/maternityPhotography.webp';
+
 
 export default function HomePage() {
+
   const featuredCategories = [
     {
       title: 'Maternity',
-      image: '/images/maternity/featured.jpg',
+      image: maternityPhotography,
       link: '/portfolio/maternity'
     },
     {
       title: 'Portraits',
-      image: '/images/portraits/featured.jpg',
+      image: portraitPhotography,
       link: '/portfolio/portraits'
     },
     {
       title: 'Infant',
-      image: '/images/infant/featured.jpg',
+      image: infantPhotography,
       link: '/portfolio/infant'
     }
   ];
 
   return (
     <div className="min-h-screen bg-[#F4EFCA] text-black">
-          <Carousel/>
+      
       {/* Hero Section */}
       <section className="relative h-[calc(100vh-20rem)]">
         
@@ -45,6 +49,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <Carousel/>
 
       {/* Spacer to prevent overlap */}
       <div className="relative z-10 bg-[#F4EFCA] h-16"></div>
@@ -56,7 +61,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-center mb-8 text-primary">
             Specialized Photography Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 text-gray-300 md:grid-cols-3 gap-8">
             {featuredCategories.map((category, index) => (
               <Link
                 key={index}
@@ -69,8 +74,8 @@ export default function HomePage() {
                   fill
                   className="object-cover transition-transform group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/50 flex items-end p-6">
-                  <h3 className="text-2xl font-bold text-secondary">
+                <div className="absolute inset-0 bg-black/35 flex items-end p-6">
+                  <h3 className="text-xl font-bold text-secondary">
                     {category.title} Photography
                   </h3>
                 </div>
@@ -99,7 +104,6 @@ export default function HomePage() {
           </div>
         </section>
       </div>
-      <Footer/>
     </div>
   );
 }

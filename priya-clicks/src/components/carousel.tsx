@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import cover1 from '../../assests/cover/cover1.webp';
 import cover2 from '../../assests/cover/cover2.webp';
 import cover3 from '../../assests/cover/cover3.webp';
-
+import cover4 from '../../assests/cover/cover4.webp';
+import cover5 from '../../assests/cover/cover5.webp';
+import cover6 from '../../assests/cover/cover6.webp';
 export default function Carousel() {
-    const images = [cover1, cover2, cover3];
+    const images = [cover1, cover2, cover3, cover4, cover5, cover6];
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -18,9 +20,9 @@ export default function Carousel() {
     }, [images.length]);
 
     return (
-        <div className="relative w-full h-[40vh] md:h-[60vh] lg:h-[70vh] overflow-hidden border-20 border-[#F4EFCA]">
+        <div className="relative w-full h-[40vh] md:h-[84vh] lg:h-[96vh] overflow-hidden border-20 border-[#F4EFCA]">
             <div 
-                className="flex transition-transform duration-900 ease-in-out h-full"
+                className="flex transition-transform duration-1100 ease-in-out h-full"
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
                 {images.map((image, index) => (
@@ -28,7 +30,7 @@ export default function Carousel() {
                         <img 
                             src={image.src}
                             alt={`Carousel image ${index + 1}`}
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain md:object-contain"
                             style={{ objectPosition: 'center' }}
                         />
                     </div>
@@ -51,6 +53,21 @@ export default function Carousel() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
             </button>
+            {/* Progress Dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                {images.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            currentIndex === index 
+                                ? 'bg-white w-4' 
+                                : 'bg-white/50 hover:bg-white/80'
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                    />
+                ))}
+            </div>
         </div>
     );
 }
