@@ -80,9 +80,10 @@ export default function Header() {
             <Link href="/studio" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
               Studio & Props
             </Link>
-            <Link href="/cinematography" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
+          {/*  Cinematography section, in case you want to showcase video shoots! 
+          <Link href="/cinematography" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
               Cinematography
-            </Link>
+            </Link> */}
             <Link href="/blogs" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
               Blogs
             </Link>
@@ -206,13 +207,14 @@ export default function Header() {
               >
                 Studio & Props
               </Link>
-              <Link 
+             {/* Cinematography section, in case you want to showcase video shoots! 
+             <Link 
                 href="/cinematography" 
                 onClick={handleLinkClick}
                 className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
               >
                 Cinematography
-              </Link>
+              </Link>*/}
               <Link 
                 href="/blogs" 
                 onClick={handleLinkClick}
