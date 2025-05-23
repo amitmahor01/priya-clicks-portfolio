@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import cover1 from '../../assests/cover/cover1.webp';
 import cover2 from '../../assests/cover/cover2.webp';
 import cover3 from '../../assests/cover/cover3.webp';
@@ -27,7 +28,7 @@ export default function Carousel() {
             >
                 {images.map((image, index) => (
                     <div key={index} className="w-full h-full flex-shrink-0 relative">
-                        <img 
+                        <Image 
                             src={image.src}
                             alt={`Carousel image ${index + 1}`}
                             className="w-full h-full object-contain md:object-contain"

@@ -37,7 +37,7 @@ export default function HomePage() {
             Priya Clicks Photography
           </h1>
           <p className="text-lg md:text-xl text-secondary mb-8 max-w-2xl">
-            Capturing life's most precious moments - from maternity to childhood
+            Capturing life&apos;s most precious moments - from maternity to childhood
           </p>
           <div className="flex gap-4">
             <Link
@@ -92,7 +92,7 @@ export default function HomePage() {
             </h2>
             <p className="text-lg text-gray-800 mb-8">
               Specializing in maternity, portrait, and infant photography, I create timeless memories
-              that capture the beauty of life's most precious stages. With a gentle touch and artistic
+              that capture the beauty of life&apos;s most precious stages. With a gentle touch and artistic
               eye, I help families preserve their most cherished moments in stunning detail.
             </p>
             <Link

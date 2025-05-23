@@ -22,8 +22,8 @@ export default function AboutPage() {
             {/* Brief Bio */}
             <h2 className="text-2xl font-semibold mb-4">Meet Priya</h2>
             <p>
-              Hi, I'm Priya, a professional photographer based in [Your Location]. 
-              With over 5 years of experience, I've developed a unique style that 
+              Hi, I&apos;m Priya, a professional photographer based in [Your Location]. 
+              With over 5 years of experience, I&apos;ve developed a unique style that 
               blends technical expertise with artistic vision to create timeless 
               images that tell compelling stories.
             </p>
@@ -32,9 +32,9 @@ export default function AboutPage() {
             <h3 className="text-xl font-semibold mt-6 mb-2">My Journey</h3>
             <p>
               My passion for photography began in [Year] when I [brief story about 
-              how you started]. Since then, I've had the privilege of working with 
+              how you started]. Since then, I&apos;ve had the privilege of working with 
               [number] clients, capturing [number] events, and creating [number] 
-              portraits that have brought joy to people's lives.
+              portraits that have brought joy to people&apos;s lives.
             </p>
             <p>
               I specialize in portrait, landscape, and event photography, with a 
