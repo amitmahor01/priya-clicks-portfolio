@@ -13,7 +13,7 @@ export default function AboutPage() {
               src={profile2} // Update with your actual image path
               alt="Priya - Professional Photographer"
               fill
-              className="object-cover"
+              className="object-cover rounded-lg"
               priority
             />
           </div>
