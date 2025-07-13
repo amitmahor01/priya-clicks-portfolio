@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Carousel from './carousel';
+import PhotoCarousel from './PhotoCarousel';
 import infantPhotography from '../../assests/specialized/infantPhotography.webp';
 import portraitPhotography from '../../assests/specialized/portraitsPhotography.webp';
 import maternityPhotography from '../../assests/specialized/maternityPhotography.webp';
@@ -27,7 +27,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F4EFCA] text-black">
+    <div className="min-h-screen w-full bg-[#F4EFCA] text-black">
       
       {/* Hero Section */}
       <section className="relative h-[calc(100vh-20rem)]">
@@ -49,8 +49,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <Carousel/>
-
+      <div className='px-8 py-8 '>
+      <PhotoCarousel/>
+      </div>
       {/* Spacer to prevent overlap */}
       <div className="relative z-10 bg-[#F4EFCA] h-16"></div>
 

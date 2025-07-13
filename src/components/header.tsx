@@ -1,22 +1,51 @@
 'use client'
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Logo from '../../assests/logo/PriyaClicksPortfolioLogo.png';
+import Image from 'next/image';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [show, setShow] = useState(true);
 
   const handleLinkClick = () => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
   return (
-    <nav className="bg-[#F4EFCA] shadow-lg sticky top-0 z-50">
+    <nav
+      className={`
+        bg-[#F4EFCA] shadow-lg sticky top-0 z-50 transition-transform duration-300
+        ${show ? 'translate-y-0' : '-translate-y-full'}
+      `}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-[#F66435] text-xl font-bold">
-              Priya Clicks
+            <Link href="/" className="text-[#F66435] text-xl font-bold flex items-center">
+              <Image
+                src={Logo}
+                alt="Priya Clicks Logo"
+                width={64}
+                height={64}
+                className="mix-blend-multiply" // This applies a burn-like effect
+                priority
+              />
             </Link>
           </div>
           
