@@ -1,37 +1,16 @@
+"use client"
 import Image from 'next/image';
 import Link from 'next/link';
 import PhotoCarousel from './PhotoCarousel';
-import infantPhotography from '../../assests/specialized/infantPhotography.webp';
-import portraitPhotography from '../../assests/specialized/portraitsPhotography.webp';
-import maternityPhotography from '../../assests/specialized/maternityPhotography.webp';
-
+import useHomepage from './hooks/useHomepage';
 
 export default function HomePage() {
-
-  const featuredCategories = [
-    {
-      title: 'Maternity',
-      image: maternityPhotography,
-      link: '/portfolio/maternity'
-    },
-    {
-      title: 'Portraits',
-      image: portraitPhotography,
-      link: '/portfolio/portraits'
-    },
-    {
-      title: 'Infant',
-      image: infantPhotography,
-      link: '/portfolio/infant'
-    }
-  ];
+  const { data, loading, error } = useHomepage();
 
   return (
     <div className="min-h-screen w-full bg-[#F4EFCA] text-black">
-      
       {/* Hero Section */}
       <section className="relative h-[calc(100vh-20rem)]">
-        
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 bg-primary-80">
           <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
             Priya Clicks Photography
@@ -50,7 +29,7 @@ export default function HomePage() {
         </div>
       </section>
       <div className='px-8 py-8 '>
-      <PhotoCarousel/>
+        <PhotoCarousel />
       </div>
       {/* Spacer to prevent overlap */}
       <div className="relative z-10 bg-[#F4EFCA] h-16"></div>
@@ -62,27 +41,36 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold text-center mb-8 text-primary">
             Specialized Photography Services
           </h2>
-          <div className="grid grid-cols-1 text-gray-300 md:grid-cols-3 gap-8">
-            {featuredCategories.map((category, index) => (
-              <Link
-                key={index}
-                href={category.link}
-                className="group relative aspect-square overflow-hidden rounded-lg shadow-lg"
-              >
-                <Image
-                  src={category.image}
-                  alt={category.title}
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/35 flex items-end p-6">
-                  <h3 className="text-xl font-bold text-secondary">
-                    {category.title} Photography
-                  </h3>
-                </div>
-              </Link>
-            ))}
-          </div>
+          {loading && (
+            <div className="text-center text-lg text-gray-500">Loading categories...</div>
+          )}
+          {error && (
+            <div className="text-center text-lg text-red-500">{error}</div>
+          )}
+          {!loading && !error && Array.isArray(data) && (
+            <div className="grid grid-cols-1 text-gray-300 md:grid-cols-3 gap-8">
+              {data.map((category: any) => (
+                <Link
+                  key={category.id}
+                  href={`/portfolio/${category.name.toLowerCase()}`}
+                  className="group relative aspect-square overflow-hidden rounded-lg shadow-lg"
+                  title={category.description}
+                >
+                  <Image
+                    src={category.thumbnail}
+                    alt={category.name}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/35 flex items-end p-6">
+                    <h3 className="text-xl font-bold text-secondary">
+                      {category.name} Photography
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </section>
 
         {/* About Section */}
