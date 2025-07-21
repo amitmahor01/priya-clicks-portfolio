@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import 'antd/dist/reset.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

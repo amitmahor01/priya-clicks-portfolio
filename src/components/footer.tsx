@@ -15,17 +15,17 @@ export default function Footer() {
                             title="View Location on Google Maps"
                             aria-label="Location on Google Maps"
                         >
-                            <FontAwesomeIcon icon={icons.mapMarker} className="text-2xl text-[#EA4335]" bounce />
+                            <FontAwesomeIcon icon={icons.mapMarker} className="text-2xl text-[#EA4335]"  />
 
                         </a>
                         <a href="tel:+971585950475" title="Call" className="hover:text-[#F66435] transition-colors">
-                            <FontAwesomeIcon icon={icons.phone} className="text-2xl text-gray-700 hover:scale-125 transition-transform" bounce />
+                            <FontAwesomeIcon icon={icons.phone} className="text-2xl text-gray-700 hover:scale-125 transition-transform"  />
                         </a>
                         <a href="mailto:priiyaclicks@gmail.com" title="Email" className="hover:text-[#1DA1F2] transition-colors">
-                            <FontAwesomeIcon icon={icons.envelope} className="text-2xl text-white hover:scale-125 transition-transform" bounce />
+                            <FontAwesomeIcon icon={icons.envelope} className="text-2xl text-white hover:scale-125 transition-transform"  />
                         </a>
                         <a href="https://api.whatsapp.com/message/NYOV5OZAEGG3H1" title="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
-                            <FontAwesomeIcon icon={icons.whatsapp} className="text-2xl text-[#25D366] hover:scale-125 transition-transform" bounce />
+                            <FontAwesomeIcon icon={icons.whatsapp} className="text-2xl text-[#25D366] hover:scale-125 transition-transform"  />
                         </a>
                     </div>
                 </div>

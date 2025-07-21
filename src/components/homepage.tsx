@@ -52,7 +52,7 @@ export default function HomePage() {
               {data.map((category: any) => (
                 <Link
                   key={category.id}
-                  href={`/portfolio/${category.name.toLowerCase()}`}
+                  href={`/${category.name.toLowerCase()}-gallery`}
                   className="group relative aspect-square overflow-hidden rounded-lg shadow-lg"
                   title={category.description}
                 >
