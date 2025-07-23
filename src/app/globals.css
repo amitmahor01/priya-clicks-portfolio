@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F4EFCA;
+  --background: linear-gradient(90deg, #C5ADC5 0%, #B2B5E0 100%);
   --foreground: #1a1a1a;
   --primary: #F66435;
   --secondary: #F4EFCA;
+  --pastel-purple: #C5ADC5;
+  --light-steel-blue: #B2B5E0;
+  --button-gradient: linear-gradient(90deg, #C5ADC5 0%, #B2B5E0 100%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,4 +33,67 @@ body {
   .btn-secondary {
     @apply bg-[#F4EFCA] text-gray-800 hover:bg-[#E4DFBA] transition-colors;
   }
+}
+
+.metallic-hover {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.metallic-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  border-radius: inherit;  mix-blend-mode: lighten;
+  /* Optional: add a noise texture overlay for realism */
+  background-blend-mode: overlay;
+}
+
+.metallic-hover:hover,
+.metallic-hover:focus {
+  color: #f8fafc !important; /* Light tone */
+  text-decoration: underline;
+}
+
+.metallic-hover:hover::before,
+.metallic-hover:focus::before {
+  opacity: 0.7;
+}
+
+.btn {
+  background: var(--button-gradient);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(197, 173, 197, 0.15);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover, .btn:focus {
+  background: linear-gradient(90deg, #B2B5E0 0%, #C5ADC5 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(178, 181, 224, 0.25);
+  text-decoration: underline;
+}
+
+.heading-font {
+  font-family: 'Ramaraja', serif;
+}
+
+.body-font {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.cta-font, .meta-font {
+  font-family: 'Reem Kufi', sans-serif;
 }

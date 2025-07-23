@@ -2,7 +2,7 @@ import { FontAwesomeIcon, icons } from '../utils/icons';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#F4EFCA] border-t border-gray-200 pt-10 pb-4">
+        <footer className="border-t border-gray-200 pt-10 pb-4">
             <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Contact Info */}
                 <div className="flex flex-col items-center md:items-start">
@@ -18,7 +18,7 @@ export default function Footer() {
                             <FontAwesomeIcon icon={icons.mapMarker} className="text-2xl text-[#EA4335]"  />
 
                         </a>
-                        <a href="tel:+971585950475" title="Call" className="hover:text-[#F66435] transition-colors">
+                        <a href="tel:+971585950475" title="Call" className=" transition-colors">
                             <FontAwesomeIcon icon={icons.phone} className="text-2xl text-gray-700 hover:scale-125 transition-transform"  />
                         </a>
                         <a href="mailto:priiyaclicks@gmail.com" title="Email" className="hover:text-[#1DA1F2] transition-colors">
@@ -46,7 +46,7 @@ export default function Footer() {
                     <div className="flex space-x-6 mt-2">
                         <a
                             href="https://www.instagram.com/priiyaclicks"
-                            className="text-[#E1306C] hover:text-[#F66435] transition-colors"
+                            className="text-[#E1306C]  transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Instagram"
@@ -56,7 +56,7 @@ export default function Footer() {
                         </a>
                         <a
                             href="https://www.facebook.com/PriiyaClicks/"
-                            className="text-blue-700 hover:text-[#F66435] transition-colors"
+                            className="text-blue-700  transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"
@@ -66,7 +66,7 @@ export default function Footer() {
                         </a>
                         <a
                             href="https://www.youtube.com/@PriyaClicks"
-                            className="text-red-500 hover:text-[#F66435] transition-colors"
+                            className="text-red-500  transition-colors"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="YouTube"

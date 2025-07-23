@@ -29,15 +29,14 @@ export default function Header() {
 
   return (
     <nav
-      className={`
-        bg-[#F4EFCA] shadow-lg sticky top-0 z-50 transition-transform duration-300
+      className={` shadow-lg sticky top-0 z-50 transition-transform duration-300
         ${show ? 'translate-y-0' : '-translate-y-full'}
       `}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="text-[#F66435] text-xl font-bold flex items-center">
+            <Link href="/" className="text-xl font-bold flex items-center">
               <Image
                 src={Logo}
                 alt="Priya Clicks Logo"
@@ -65,67 +64,54 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             {/* Services Dropdown */}
             <div className="relative group">
-              <button className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors flex items-center px-3 py-2 rounded">
+              <button className="metallic-hover relative px-3 py-2 rounded transition-colors flex items-center">
                 Services
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              <div className="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-[#F4EFCA] shadow-lg rounded-lg mt-2 py-2 w-64 transition-all duration-300 delay-300">
-                <Link href="/services/maternity" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Maternity Photography
+              <div className="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-[var(--pastel-purple)] shadow-lg rounded-lg mt-2 py-2 w-64 transition-all duration-300 delay-300">
+                <Link href="/services/newborn" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                  Newborn
                 </Link>
-                <Link href="/services/maternity-outdoor" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Maternity Outdoor Photography
+                <Link href="/services/maternity" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                  Maternity
                 </Link>
-                <Link href="/services/pregnancy" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Pregnancy Photoshoot
+                <Link href="/services/cake-smash" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                  Cake Smash
                 </Link>
-                <Link href="/services/newborn" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Newborn Photography
+                <Link href="/services/baby-toddler" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                  Babies & Toddlers
                 </Link>
-                <Link href="/services/baby-shoot" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Baby Shoot
-                </Link>
-                <Link href="/services/baby-photography" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Baby Photography (1 - 6 Month)
-                </Link>
-                <Link href="/services/family" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Family Photography
-                </Link>
-                <Link href="/services/growing-baby" className="block px-4 py-2 text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors">
-                  Growing Baby Photoshoot
+                <Link href="/services/family" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                  Family
                 </Link>
               </div>
             </div>
 
-            <Link href="/studio" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
+            <Link href="/studio" className="metallic-hover relative px-3 py-2 rounded transition-colors">
               Studio & Props
             </Link>
-            {/*  Cinematography section, in case you want to showcase video shoots! 
-          <Link href="/cinematography" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
-              Cinematography
-            </Link> */}
-            <Link href="/blogs" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
+            <Link href="/blogs" className="metallic-hover relative px-3 py-2 rounded transition-colors">
               Blogs
             </Link>
-            <Link href="/contact" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
+            <Link href="/contact" className="metallic-hover relative px-3 py-2 rounded transition-colors">
               Contact Us
             </Link>
-            <Link href="/about" className="text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded">
+            <Link href="/about" className="metallic-hover relative px-3 py-2 rounded transition-colors">
               About Me
             </Link>
           </div>
 
           {/* Mobile Side Menu */}
           <div
-            className={`fixed inset-y-0 right-0 w-64 bg-[#F4EFCA] shadow-lg transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
+            className={`fixed inset-y-0 right-0 w-64 bg-[var(--pastel-purple)] shadow-lg transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
               } transition-transform duration-300 ease-in-out md:hidden z-50`}
           >
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-800 hover:text-[#F66435] focus:outline-none"
+              className="absolute top-4 right-4 text-gray-800 "
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -136,14 +122,14 @@ export default function Header() {
               <Link
                 href="/"
                 onClick={handleLinkClick}
-                className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Home
               </Link>
               <Link
                 href="/about"
                 onClick={handleLinkClick}
-                className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                className="metallic-hover relative px-3 py-2 rounded transition-colors"
               >
                 About Me
               </Link>
@@ -152,7 +138,7 @@ export default function Header() {
               <div className="relative">
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="w-full text-left text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded flex items-center justify-between"
+                  className="w-full text-left text-gray-800  px-3 py-2 rounded flex items-center justify-between"
                 >
                   Services
                   <svg
@@ -168,56 +154,56 @@ export default function Header() {
                   <Link
                     href="/services/maternity"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Maternity Photography
                   </Link>
                   <Link
                     href="/services/maternity-outdoor"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Maternity Outdoor Photography
                   </Link>
                   <Link
                     href="/services/pregnancy"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Pregnancy Photoshoot
                   </Link>
                   <Link
                     href="/services/newborn"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Newborn Photography
                   </Link>
                   <Link
                     href="/services/baby-shoot"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Baby Shoot
                   </Link>
                   <Link
                     href="/services/baby-photography"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Baby Photography (1 - 6 Month)
                   </Link>
                   <Link
                     href="/services/family"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Family Photography
                   </Link>
                   <Link
                     href="/services/growing-baby"
                     onClick={handleLinkClick}
-                    className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Growing Baby Photoshoot
                   </Link>
@@ -227,7 +213,7 @@ export default function Header() {
               <Link
                 href="/studio"
                 onClick={handleLinkClick}
-                className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Studio & Props
               </Link>
@@ -242,14 +228,14 @@ export default function Header() {
               <Link
                 href="/blogs"
                 onClick={handleLinkClick}
-                className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Blogs
               </Link>
               <Link
                 href="/contact"
                 onClick={handleLinkClick}
-                className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
+                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Contact Us
               </Link>
