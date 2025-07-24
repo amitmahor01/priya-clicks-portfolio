@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Ramaraja, Quicksand, Reem_Kufi } from "next/font/google";
+import {  Quicksand } from "next/font/google";
 import "./globals.css";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import 'antd/dist/reset.css';
+import SakuraEffectComponent from "@/components/sakura-foreground/SakuraEffectComponent";
 
-// Font instances
-const ramaraja = Ramaraja({ weight: "400", subsets: ["latin"] });
+
 const quicksand = Quicksand({ weight: ["400", "500", "600", "700"], subsets: ["latin"] });
-const reemKufi = Reem_Kufi({ weight: ["400", "500", "600", "700"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,10 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.className} antialiased`}>
+      <body className={`${quicksand.className} antialiased`}
+        style={{
+          backgroundColor: "#C5ADC5",
+          backgroundImage: "url('/backgroundSakura.webp')",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover", 
+          backgroundPosition: "center",
+        }}>
+          <SakuraEffectComponent/>
         <Header />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

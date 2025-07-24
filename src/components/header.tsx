@@ -1,8 +1,6 @@
 'use client'
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import Logo from '../../assests/logo/PriyaClicksPortfolioLogo.png';
-import Image from 'next/image';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,18 +33,6 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="text-xl font-bold flex items-center">
-              <Image
-                src={Logo}
-                alt="Priya Clicks Logo"
-                width={64}
-                height={64}
-                className="mix-blend-multiply" // This applies a burn-like effect
-                priority
-              />
-            </Link>
-          </div>
 
           {/* Hamburger Icon for Mobile */}
           <div className="flex md:hidden items-center">
@@ -59,46 +45,48 @@ export default function Header() {
               </svg>
             </button>
           </div>
-
+          <div></div>{/* space for logo */}
+           
+          
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {/* Services Dropdown */}
             <div className="relative group">
-              <button className="metallic-hover relative px-3 py-2 rounded transition-colors flex items-center">
+              <button className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors flex items-center">
                 Services
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
               <div className="absolute opacity-0 invisible group-hover:opacity-100 group-hover:visible bg-[var(--pastel-purple)] shadow-lg rounded-lg mt-2 py-2 w-64 transition-all duration-300 delay-300">
-                <Link href="/services/newborn" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                <Link href="/services/newborn" className="metallic-hover header-button-hover relative block px-4 py-2 rounded transition-colors">
                   Newborn
                 </Link>
-                <Link href="/services/maternity" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                <Link href="/services/maternity" className="metallic-hover header-button-hover relative block px-4 py-2 rounded transition-colors">
                   Maternity
                 </Link>
-                <Link href="/services/cake-smash" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                <Link href="/services/cake-smash" className="metallic-hover header-button-hover relative block px-4 py-2 rounded transition-colors">
                   Cake Smash
                 </Link>
-                <Link href="/services/baby-toddler" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                <Link href="/services/baby-toddler" className="metallic-hover header-button-hover relative block px-4 py-2 rounded transition-colors">
                   Babies & Toddlers
                 </Link>
-                <Link href="/services/family" className="metallic-hover relative block px-4 py-2 rounded transition-colors">
+                <Link href="/services/family" className="metallic-hover header-button-hover relative block px-4 py-2 rounded transition-colors">
                   Family
                 </Link>
               </div>
             </div>
 
-            <Link href="/studio" className="metallic-hover relative px-3 py-2 rounded transition-colors">
+            <Link href="/studio" className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors">
               Studio & Props
             </Link>
-            <Link href="/blogs" className="metallic-hover relative px-3 py-2 rounded transition-colors">
+            <Link href="/blogs" className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors">
               Blogs
             </Link>
-            <Link href="/contact" className="metallic-hover relative px-3 py-2 rounded transition-colors">
+            <Link href="/contact" className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors">
               Contact Us
             </Link>
-            <Link href="/about" className="metallic-hover relative px-3 py-2 rounded transition-colors">
+            <Link href="/about" className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors">
               About Me
             </Link>
           </div>
@@ -122,14 +110,14 @@ export default function Header() {
               <Link
                 href="/"
                 onClick={handleLinkClick}
-                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Home
               </Link>
               <Link
                 href="/about"
                 onClick={handleLinkClick}
-                className="metallic-hover relative px-3 py-2 rounded transition-colors"
+                className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors"
               >
                 About Me
               </Link>
@@ -154,56 +142,56 @@ export default function Header() {
                   <Link
                     href="/services/maternity"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Maternity Photography
                   </Link>
                   <Link
                     href="/services/maternity-outdoor"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Maternity Outdoor Photography
                   </Link>
                   <Link
                     href="/services/pregnancy"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Pregnancy Photoshoot
                   </Link>
                   <Link
                     href="/services/newborn"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Newborn Photography
                   </Link>
                   <Link
                     href="/services/baby-shoot"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Baby Shoot
                   </Link>
                   <Link
                     href="/services/baby-photography"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Baby Photography (1 - 6 Month)
                   </Link>
                   <Link
                     href="/services/family"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Family Photography
                   </Link>
                   <Link
                     href="/services/growing-baby"
                     onClick={handleLinkClick}
-                    className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
                   >
                     Growing Baby Photoshoot
                   </Link>
@@ -213,7 +201,7 @@ export default function Header() {
               <Link
                 href="/studio"
                 onClick={handleLinkClick}
-                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Studio & Props
               </Link>
@@ -228,14 +216,14 @@ export default function Header() {
               <Link
                 href="/blogs"
                 onClick={handleLinkClick}
-                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Blogs
               </Link>
               <Link
                 href="/contact"
                 onClick={handleLinkClick}
-                className="metallic-hover relative block px-3 py-2 rounded transition-colors"
+                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
               >
                 Contact Us
               </Link>

@@ -1,13 +1,50 @@
 import { FontAwesomeIcon, icons } from '../utils/icons';
+import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="border-t border-gray-200 pt-10 pb-4">
-            <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-                {/* Contact Info */}
+        <footer className="shadow-xl shadow-black pt-10 pb-4" >
+            <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+                {/* Info Section (Left) */}
                 <div className="flex flex-col items-center md:items-start">
-                    <h3 className="mb-4 text-lg font-bold text-gray-800">Contact</h3>
-                    <div className="flex space-x-6 mt-2">
+                    {/* Logo Placeholder */}
+                    <div className="mb-4">
+                        {/* Replace with your logo if available */}
+                        <span className="heading-font text-3xl text-black font-bold">PriyaClicks</span>
+                    </div>
+                    <blockquote className="body-font text-base md:text-lg text-black font-medium leading-relaxed mb-2">
+                        “We don’t just take photographs — we freeze love, laughter, and life’s most tender moments into timeless memories.”
+                    </blockquote>
+                    <span className="block text-sm text-black font-bold">— Priya Clicks</span>
+                </div>
+
+                {/* Quick Links (Second Column) */}
+                <div className="flex flex-col items-start">
+                    <h3 className="mb-4 text-lg font-extrabold text-gray-800">Quick Links</h3>
+                    <ul className="space-y-2 text-gray-700">
+                        <li><Link href="/" className="hover:text-[#1DA1F2] transition-colors">Home</Link></li>
+                        <li><Link href="/portfolio" className="hover:text-[#1DA1F2] transition-colors">Portfolio</Link></li>
+                        <li><Link href="/about" className="hover:text-[#1DA1F2] transition-colors">About Us</Link></li>
+                        <li><Link href="/contact" className="hover:text-[#1DA1F2] transition-colors">Contact</Link></li>
+                    </ul>
+                </div>
+                {/* Opening Hours (Third Column) */}
+                <div className="flex flex-col items-start">
+                    <h3 className="mb-4 text-lg font-extrabold text-gray-800">Opening Hours</h3>
+                    <ul className="space-y-2 text-gray-700">
+                        <li>Monday - Friday: 9 AM - 6 PM</li>
+                        <li>Saturday: 10 AM - 4 PM</li>
+                        <li>Sunday: Closed</li>
+                    </ul>
+                </div>
+                {/* Contact & Social Links (Fourth Column) */}
+                <div className="flex flex-col items-center md:items-end">
+                    <h3 className="mb-4 text-lg font-extrabold text-gray-800">Contact</h3>
+                    <div className="flex space-x-6 mt-2 mb-8">
+
+                        <a href="mailto:priiyaclicks@gmail.com" title="Email" className=" ">
+                            <FontAwesomeIcon icon={icons.envelope} className="text-2xl text-white hover:scale-125 transition-transform hover:bg-black hover:rounded-sm hover:w-7" />
+                        </a>
                         <a
                             href="https://maps.app.goo.gl/srujddz6nxkJKoyd9"
                             target="_blank"
@@ -15,34 +52,16 @@ export default function Footer() {
                             title="View Location on Google Maps"
                             aria-label="Location on Google Maps"
                         >
-                            <FontAwesomeIcon icon={icons.mapMarker} className="text-2xl text-[#EA4335]"  />
-
+                            <FontAwesomeIcon icon={icons.mapMarker} className="text-2xl text-[#EA4335] hover:scale-125 transition-transform" />
                         </a>
                         <a href="tel:+971585950475" title="Call" className=" transition-colors">
-                            <FontAwesomeIcon icon={icons.phone} className="text-2xl text-gray-700 hover:scale-125 transition-transform"  />
-                        </a>
-                        <a href="mailto:priiyaclicks@gmail.com" title="Email" className="hover:text-[#1DA1F2] transition-colors">
-                            <FontAwesomeIcon icon={icons.envelope} className="text-2xl text-white hover:scale-125 transition-transform"  />
+                            <FontAwesomeIcon icon={icons.phone} className="text-2xl text-gray-700 hover:scale-125 transition-transform" />
                         </a>
                         <a href="https://api.whatsapp.com/message/NYOV5OZAEGG3H1" title="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
-                            <FontAwesomeIcon icon={icons.whatsapp} className="text-2xl text-[#25D366] hover:scale-125 transition-transform"  />
+                            <FontAwesomeIcon icon={icons.whatsapp} className="text-2xl text-[#25D366] hover:scale-125 transition-transform hover:bg-white hover:rounded-full" />
                         </a>
                     </div>
-                </div>
-
-                {/* Opening Hours */}
-                <div>
-                    <h3 className="mb-4 text-lg font-bold text-gray-800">Opening Hours</h3>
-                    <ul className="space-y-2 text-gray-700">
-                        <li>Monday - Friday: 9 AM - 6 PM</li>
-                        <li>Saturday: 10 AM - 4 PM</li>
-                        <li>Sunday: Closed</li>
-                    </ul>
-                </div>
-
-                {/* Social Links */}
-                <div className="flex flex-col items-center md:items-end">
-                    <h3 className="mb-4 text-lg font-bold text-gray-800">Follow Us</h3>
+                    <h3 className="mb-4 text-lg font-extrabold text-gray-800">Follow Us</h3>
                     <div className="flex space-x-6 mt-2">
                         <a
                             href="https://www.instagram.com/priiyaclicks"
@@ -52,7 +71,7 @@ export default function Footer() {
                             aria-label="Instagram"
                             title="Instagram"
                         >
-                            <FontAwesomeIcon icon={icons.instagram} className="text-2xl hover:scale-125 transition-transform" bounce />
+                            <FontAwesomeIcon icon={icons.instagram} className="text-2xl hover:scale-125 transition-transform hover:bg-white hover:rounded-sm" bounce />
                         </a>
                         <a
                             href="https://www.facebook.com/PriiyaClicks/"
@@ -62,7 +81,7 @@ export default function Footer() {
                             aria-label="Facebook"
                             title="Facebook"
                         >
-                            <FontAwesomeIcon icon={icons.facebook} className="text-2xl hover:scale-125 transition-transform" bounce />
+                            <FontAwesomeIcon icon={icons.facebook} className="text-2xl hover:scale-125 transition-transform hover:bg-white hover:rounded-full" bounce />
                         </a>
                         <a
                             href="https://www.youtube.com/@PriyaClicks"
@@ -72,7 +91,7 @@ export default function Footer() {
                             aria-label="YouTube"
                             title="YouTube"
                         >
-                            <FontAwesomeIcon icon={icons.youtube} className="text-2xl hover:scale-125 transition-transform" bounce />
+                            <FontAwesomeIcon icon={icons.youtube} className="text-2xl hover:scale-125 transition-transform hover:bg-white hover:rounded-lg" bounce />
                         </a>
                     </div>
                 </div>

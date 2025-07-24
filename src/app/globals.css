@@ -35,34 +35,6 @@ body {
   }
 }
 
-.metallic-hover {
-  position: relative;
-  transition: color 0.3s;
-}
-
-.metallic-hover::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  opacity: 0;
-  transition: opacity 0.3s;
-  pointer-events: none;
-  border-radius: inherit;  mix-blend-mode: lighten;
-  /* Optional: add a noise texture overlay for realism */
-  background-blend-mode: overlay;
-}
-
-.metallic-hover:hover,
-.metallic-hover:focus {
-  color: #f8fafc !important; /* Light tone */
-  text-decoration: underline;
-}
-
-.metallic-hover:hover::before,
-.metallic-hover:focus::before {
-  opacity: 0.7;
-}
 
 .btn {
   background: var(--button-gradient);
@@ -86,6 +58,27 @@ body {
   text-decoration: underline;
 }
 
+.header-button-hover {
+  transition: background 0.2s, transform 0.2s;
+}
+.header-button-hover:hover,
+.header-button-hover:focus {
+  background: #F4EFCA; /* off white */
+  transform: scale(1.05);
+  font-weight: 700;
+}
+
+.body-button-hover {
+  transition: background 0.2s, transform 0.2s;
+}
+.body-button-hover:hover,
+.body-button-hover:focus {
+  background: #F4EFCA;
+  transform: scale(1.10);
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
 .heading-font {
   font-family: 'Ramaraja', serif;
 }
@@ -96,4 +89,214 @@ body {
 
 .cta-font, .meta-font {
   font-family: 'Reem Kufi', sans-serif;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(-8px);}
+}
+.animate-bounce {
+  animation: bounce 0.6s;
+}
+
+/* sakura petal falling css */
+
+.petal {
+  position: fixed;
+  top: -10px;
+  left: calc(100vw * var(--x));
+  width: 20px;
+  height: 20px;
+  background-image: url('/assests/sakura-petal.png'); /* use your asset */
+  background-size: cover;
+  animation: fall linear infinite;
+  animation-duration: calc(3s + 2s * var(--delay));
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+
+@keyframes fall {
+  0% {
+      opacity: 0.9;
+      top: 0
+  }
+  100% {
+      opacity: 0.2;
+      top: 100%
+  }
+}
+
+@keyframes blow-soft-left {
+  0% {
+      margin-left: 0
+  }
+  100% {
+      margin-left: -50%
+  }
+}
+
+@keyframes blow-medium-left {
+  0% {
+      margin-left: 0
+  }
+  100% {
+      margin-left: -100%
+  }
+}
+
+@keyframes blow-soft-right {
+  0% {
+      margin-left: 0
+  }
+  100% {
+      margin-left: 50%
+  }
+}
+
+@keyframes blow-medium-right {
+  0% {
+      margin-left: 0
+  }
+  100% {
+      margin-left: 100%
+  }
+}
+
+@keyframes sway-0 {
+  0% {
+      transform: rotate(-5deg)
+  }
+  40% {
+      transform: rotate(28deg)
+  }
+  100% {
+      transform: rotate(3deg)
+  }
+}
+
+@keyframes sway-1 {
+  0% {
+      transform: rotate(10deg)
+  }
+  40% {
+      transform: rotate(43deg)
+  }
+  100% {
+      transform: rotate(15deg)
+  }
+}
+
+@keyframes sway-2 {
+  0% {
+      transform: rotate(15deg)
+  }
+  40% {
+      transform: rotate(56deg)
+  }
+  100% {
+      transform: rotate(22deg)
+  }
+}
+
+@keyframes sway-3 {
+  0% {
+      transform: rotate(25deg)
+  }
+  40% {
+      transform: rotate(74deg)
+  }
+  100% {
+      transform: rotate(37deg)
+  }
+}
+
+@keyframes sway-4 {
+  0% {
+      transform: rotate(40deg)
+  }
+  40% {
+      transform: rotate(68deg)
+  }
+  100% {
+      transform: rotate(25deg)
+  }
+}
+
+@keyframes sway-5 {
+  0% {
+      transform: rotate(50deg)
+  }
+  40% {
+      transform: rotate(78deg)
+  }
+  100% {
+      transform: rotate(40deg)
+  }
+}
+
+@keyframes sway-6 {
+  0% {
+      transform: rotate(65deg)
+  }
+  40% {
+      transform: rotate(92deg)
+  }
+  100% {
+      transform: rotate(58deg)
+  }
+}
+
+@keyframes sway-7 {
+  0% {
+      transform: rotate(72deg)
+  }
+  40% {
+      transform: rotate(118deg)
+  }
+  100% {
+      transform: rotate(68deg)
+  }
+}
+
+@keyframes sway-8 {
+  0% {
+      transform: rotate(94deg)
+  }
+  40% {
+      transform: rotate(136deg)
+  }
+  100% {
+      transform: rotate(82deg)
+  }
+}
+
+.sakura {
+   background: linear-gradient(120deg, rgba(255, 183, 197, 0.9), rgba(255, 197, 208, 0.9));
+  pointer-events: none;
+  position: absolute
+}
+
+/*scroll bar css */
+
+/* Customize for Chrome, Edge, Safari */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #211e2aBF;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #8d8c8d;
+  border-radius: 20px;/* matches your background */
 }

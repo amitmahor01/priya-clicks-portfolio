@@ -20,7 +20,9 @@ const PhotoCarousel = () => {
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
+    touchmove: true,
     autoplay: true,
+    arrows: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -35,8 +37,6 @@ const PhotoCarousel = () => {
         },
       },
     ],
-    prevArrow: <LeftOutlined />,
-    nextArrow: <RightOutlined />,
   };
 
   return (
@@ -64,7 +64,7 @@ const PhotoCarousel = () => {
         ))}
       </Carousel>
 
-      <style jsx global>{`
+      <style >{`
         .ant-carousel {
           height: 100%;
         }
@@ -76,18 +76,6 @@ const PhotoCarousel = () => {
         .ant-carousel .slick-slide > div {
           height: 100%;
         }
-        .ant-carousel .slick-prev,
-        .ant-carousel .slick-next {
-          color: white;
-          font-size: 24px;
-          z-index: 2;
-        }
-        .ant-carousel .slick-prev {
-          left: 10px;
-        }
-        .ant-carousel .slick-next {
-          right: 10px;
-        }
         .ant-image {
           width: 100%;
           height: 100%;
@@ -95,10 +83,18 @@ const PhotoCarousel = () => {
         .ant-image-mask {
           border-radius: 8px;
         }
+
+  .slick-dots{
+  height:8px;
+  }
+
+        /* Optional: Style the active dot */
+        .ant-carousel .slick-dots li.slick-active button {
+          background: #f66435 !important;
+        }
       `}</style>
     </div>
   );
 };
 
 export default PhotoCarousel;
- 
