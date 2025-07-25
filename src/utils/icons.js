@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faMapMarkerAlt, 
   faPhone, 
-  faEnvelope 
+  faEnvelope,
+  faUser,
+  faCamera
 } from '@fortawesome/free-solid-svg-icons';
 import { 
   faWhatsapp, 
@@ -23,6 +25,8 @@ export const icons = {
   mapMarker: faMapMarkerAlt,
   phone: faPhone,
   envelope: faEnvelope,
+  user: faUser,
+  camera: faCamera,
   
   // Brand icons
   whatsapp: faWhatsapp,

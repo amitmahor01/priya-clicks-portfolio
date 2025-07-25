@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Carousel, Image as AntImage } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import cover1 from '../../assests/cover/cover1.webp';
 import cover2 from '../../assests/cover/cover2.webp';
@@ -40,11 +39,11 @@ const PhotoCarousel = () => {
   };
 
   return (
-    <div className="mx-auto w-[80%] h-[80vh]">
+    <div className="mx-auto w-full sm:w-[80%] h-[40vh] sm:h-[80vh]">
       <Carousel {...carouselSettings} className="h-full">
         {images.map((img, idx) => (
-          <div key={idx} className="p-2 h-full">
-            <div className="relative h-full">
+          <div key={idx} className="p-1 sm:p-2 h-full">
+            <div className="relative h-40 sm:h-full aspect-[16/9] sm:aspect-auto">
               <AntImage
                 src={img.src}
                 alt={`Photo ${idx + 1}`}
@@ -64,7 +63,7 @@ const PhotoCarousel = () => {
         ))}
       </Carousel>
 
-      <style >{`
+      <style>{`
         .ant-carousel {
           height: 100%;
         }
@@ -83,12 +82,13 @@ const PhotoCarousel = () => {
         .ant-image-mask {
           border-radius: 8px;
         }
-
-  .slick-dots{
-  height:8px;
-  }
-
-        /* Optional: Style the active dot */
+        .slick-dots {
+          height: 12px;
+        }
+        .ant-carousel .slick-dots li button {
+          width: 20px;
+          height: 20px;
+        }
         .ant-carousel .slick-dots li.slick-active button {
           background: #f66435 !important;
         }

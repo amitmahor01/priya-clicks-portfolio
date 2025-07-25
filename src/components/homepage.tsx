@@ -1,15 +1,9 @@
 "use client"
-import Image from 'next/image';
 import Link from 'next/link';
 import PhotoCarousel from './PhotoCarousel';
 import useHomepage from './hooks/useHomepage';
+import HomepageTiles from './homepage/HomepageTiles';
 
-type Category = {
-  id: number;
-  name: string;
-  description: string;
-  thumbnail: string;
-};
 
 export default function HomePage() {
   const { data, loading, error } = useHomepage();
@@ -17,18 +11,18 @@ export default function HomePage() {
   return (
     <div className="min-h-screen w-full">
       {/* Hero Section */}
-      <section className="relative h-[calc(100vh-20rem)]">
-        <div className="absolute md:mt-50 inset-0 flex flex-col justify-center items-center text-center px-4">
-          <h1 className="heading-font text-4xl md:text-6xl font-bold text-primary mb-4">
+      <section className="relative h-auto md:h-[calc(100vh-20rem)]">
+        <div className="relative md:static inset-0 flex flex-col justify-center items-center text-center px-2 md:px-4 mt-8 md:mt-40">
+          <h1 className="heading-font text-2xl sm:text-4xl md:text-6xl font-extrabold text-primary mb-2 md:mb-4">
             Priya Clicks Photography
           </h1>
-          <p className="text-lg md:text-xl text-secondary mb-8 max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-secondary mb-4 md:mb-8 max-w-xs sm:max-w-2xl">
             Capturing life&apos;s most precious moments - from maternity to childhood
           </p>
-          <div className="flex gap-4 p-4">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 p-2 sm:p-4 w-full sm:w-auto">
             <Link
               href="/portfolio"
-              className="body-button-hover meta-font text-xl font-bold px-6 py-3 rounded-lg group flex items-center"
+              className="body-button-hover meta-font text-base sm:text-xl font-bold px-4 py-2 sm:px-6 sm:py-3 rounded-lg group flex items-center justify-center w-full sm:w-auto"
             >
               Book a Session
               <span
@@ -55,11 +49,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      <div className=' mt-30 px-8 py-8 '>
+      <div className="px-10 py-8 md:px-8 md:py-8 pt-4 md:pt-0">
         <PhotoCarousel />
       </div>
       {/* Spacer to prevent overlap */}
-      <div className="relative z-10  h-16"></div>
+      <div className="relative z-10  h-6"></div>
 
       {/* Main Content Container */}
       <div className="">
@@ -68,37 +62,20 @@ export default function HomePage() {
           <h2 className="heading-font text-4xl font-bold text-center mb-2 text-primary">
             Explore Our Services
           </h2>
-          {loading && (
-            <div className="text-center text-lg text-gray-500">Loading categories...</div>
-          )}
-          {error && (
-            <div className="text-center text-lg text-red-500">{error}</div>
-          )}
-          {!loading && !error && Array.isArray(data) && (
-            <div className="grid grid-cols-1 mt-10 text-gray-300 md:grid-cols-3 gap-8">
-              {data.map((category: Category) => (
-                <Link
-                  key={category.id}
-                  href={`/gallery?category=${encodeURIComponent(category.name)}`}
-                  className="group relative aspect-square overflow-hidden rounded-lg shadow-lg"
-                  title={category.description}
-                >
-                  <Image
-                    src={category.thumbnail}
-                    alt={category.name}
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-black/35 flex items-end p-6">
-                    <h3 className="text-xl font-bold text-secondary">
-                      {category.name} Photography
-                    </h3>
-                  </div>
-                </Link>
-              ))}
+          <HomepageTiles data={data || []} loading={loading} error={error} />
+          <div className='flex items-center justify-center p-4 mt-5'>
+              <Link
+                href="/all-services"
+                className="body-button-hover w-auto meta-font text-lg font-bold px-6 py-3 rounded-lg group flex items-center"
+              >
+                view more
+              </Link>
             </div>
-          )}
         </section>
+
+
+      {/* Spacer to prevent overlap */}
+      <div className="relative z-10  h-2"></div>
 
         {/* About Section */}
         <section className="py-16 px-4 ">

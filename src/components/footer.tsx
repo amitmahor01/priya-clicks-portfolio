@@ -3,10 +3,10 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="shadow-xl shadow-black pt-10 pb-4" >
-            <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <footer className="shadow-xl shadow-black pt-10 pb-4">
+            <div className="max-w-6xl mx-auto px-2 sm:px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
                 {/* Info Section (Left) */}
-                <div className="flex flex-col items-center md:items-start">
+                <div className="flex flex-col items-center md:items-start text-center md:text-left mb-6 md:mb-0">
                     {/* Logo Placeholder */}
                     <div className="mb-4">
                         {/* Replace with your logo if available */}
@@ -19,17 +19,17 @@ export default function Footer() {
                 </div>
 
                 {/* Quick Links (Second Column) */}
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-center text-center md:items-start md:text-left">
                     <h3 className="mb-4 text-lg font-extrabold text-gray-800">Quick Links</h3>
                     <ul className="space-y-2 text-gray-700">
-                        <li><Link href="/" className="hover:text-[#1DA1F2] transition-colors">Home</Link></li>
-                        <li><Link href="/portfolio" className="hover:text-[#1DA1F2] transition-colors">Portfolio</Link></li>
-                        <li><Link href="/about" className="hover:text-[#1DA1F2] transition-colors">About Us</Link></li>
-                        <li><Link href="/contact" className="hover:text-[#1DA1F2] transition-colors">Contact</Link></li>
+                        <li><Link href="/" className="hover:font-extrabold hover:text-black transition-colors">Home</Link></li>
+                        <li><Link href="/portfolio" className="hover:font-extrabold hover:text-black transition-colors">Portfolio</Link></li>
+                        <li><Link href="/about" className="hover:font-extrabold hover:text-black transition-colors">About Us</Link></li>
+                        <li><Link href="/contact" className="hover:font-extrabold hover:text-black transition-colors">Contact</Link></li>
                     </ul>
                 </div>
                 {/* Opening Hours (Third Column) */}
-                <div className="flex flex-col items-start">
+                <div className="flex flex-col items-startflex flex-col items-center text-center md:items-start md:text-left">
                     <h3 className="mb-4 text-lg font-extrabold text-gray-800">Opening Hours</h3>
                     <ul className="space-y-2 text-gray-700">
                         <li>Monday - Friday: 9 AM - 6 PM</li>

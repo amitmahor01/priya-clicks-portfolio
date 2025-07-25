@@ -24,25 +24,35 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    // Clean up on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
 
   return (
-    <nav
-      className={` shadow-lg sticky top-0 z-50 transition-transform duration-300
-        ${show ? 'translate-y-0' : '-translate-y-full'}
-      `}
-    >
+    <nav className="shadow-lg sticky top-0 z-50 transition-transform duration-300  backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between h-16 relative">
 
           {/* Hamburger Icon for Mobile */}
-          <div className="flex md:hidden items-center">
+          <div className="md:hidden flex items-center relative w-full">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 focus:outline-none"
+              className={`absolute z-41 flex items-center justify-center w-12 h-12 rounded-xl bg-white/80 shadow-lg font-extrabold transition-all duration-300
+                ${isOpen ? 'left-70 top-2' : 'left-0 top-2'}`}
+              aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              <span className={`block absolute w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isOpen ? 'rotate-45 top-1/2' : '-translate-y-2'}`}></span>
+              <span className={`block absolute w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`block absolute w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isOpen ? '-rotate-45 top-1/2' : 'translate-y-2'}`}></span>
             </button>
           </div>
           <div></div>{/* space for logo */}
@@ -52,7 +62,7 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             {/* Services Dropdown */}
             <div className="relative group">
-              <button className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors flex items-center">
+              <button className=" header-button-hover relative px-3 py-2 rounded transition-colors flex items-center">
                 Services
                 <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -91,154 +101,105 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Mobile Side Menu */}
-          <div
-            className={`fixed inset-y-0 right-0 w-64 bg-[var(--pastel-purple)] shadow-lg transform ${isOpen ? 'translate-x-0' : 'translate-x-full'
-              } transition-transform duration-300 ease-in-out md:hidden z-50`}
-          >
-            {/* Close Button */}
-            <button
-              onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 text-gray-800 "
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <div className="px-4 py-4">
-              <Link
-                href="/"
-                onClick={handleLinkClick}
-                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
+          {/* Mobile Modal Menu & Backdrop */}
+          {isOpen && (
+            <div className="absolute -left-4 top-0 w-[100vw] h-[100vh] z-40 flex items-start justify-start md:hidden">
+              {/* Backdrop */}
+              <div
+                className="absolute inset-0 w-full h-[100vh] backdrop-blur-lg transition-opacity duration-300"
+                onClick={() => setIsOpen(false)}
+              />
+              {/* Modal Side Menu */}
+              <div
+                className={`absolute top-0 -left-2 h-screen w-[83vw] max-w-xs bg-[#b496b4] z-50 transform transition-transform duration-300
+                  ${isOpen ? 'translate-x-0' : '-translate-x-full'} shadow-2xl rounded-r-2xl`}
               >
-                Home
-              </Link>
-              <Link
-                href="/about"
-                onClick={handleLinkClick}
-                className="metallic-hover header-button-hover relative px-3 py-2 rounded transition-colors"
-              >
-                About Me
-              </Link>
-
-              {/* Services Dropdown */}
-              <div className="relative">
-                <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="w-full text-left text-gray-800  px-3 py-2 rounded flex items-center justify-between"
-                >
-                  Services
-                  <svg
-                    className={`w-4 h-4 ml-1 transform transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                <div className={`pl-4 mt-1 space-y-1 border-l-2 border-[#F66435] overflow-hidden transition-all duration-300 ${isServicesOpen ? 'max-h-96' : 'max-h-0'}`}>
+                <div className="px-4 py-8 flex flex-col gap-2 text-gray-800 bg-[#b496b4]">
                   <Link
-                    href="/services/maternity"
+                    href="/"
                     onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
+                    className="
+                      flex items-center gap-3 text-base font-medium
+                      rounded-lg
+                      px-4 py-2
+                      transition-colors duration-150
+                      hover:bg-[#f3e9f4] focus:bg-[#f3e9f4]
+                      active:bg-[#e5d3e8]
+                      focus:outline-none
+                    "
                   >
-                    Maternity Photography
+                    {/* Optional: Use a muted icon */}
+                    {/* <FontAwesomeIcon icon={icons.home} className="text-lg text-gray-400" /> */}
+                    Home
                   </Link>
                   <Link
-                    href="/services/maternity-outdoor"
+                    href="/about"
                     onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
+                    className="flex items-center gap-3 text-lg rounded-xl hover:bg-[#F4EFCA] transition-colors px-4 py-3"
                   >
-                    Maternity Outdoor Photography
+                    About Me
+                    
+                  </Link>
+                  {/* Services Dropdown */}
+                  <div className="relative">
+                    <button
+                      onClick={() => setIsServicesOpen(!isServicesOpen)}
+                      className="
+                        flex items-center justify-between w-full text-base font-medium
+                        rounded-lg px-4 py-2
+                        transition-colors duration-150
+                        hover:bg-[#f3e9f4] focus:bg-[#f3e9f4]
+                        active:bg-[#e5d3e8]
+                        focus:outline-none
+                      "
+                    >
+                      <span className="flex items-center gap-3">
+                        Services
+                      </span>
+                      <svg
+                        className={`w-4 h-4 ml-1 transform transition-transform ${isServicesOpen ? 'rotate-180' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    <div className={`pl-4 mt-1 space-y-1 border-l-2 border-[#F66435] overflow-hidden transition-all duration-300 ${isServicesOpen ? 'max-h-96' : 'max-h-0'}`}>
+                      <Link href="/services/newborn" onClick={handleLinkClick} className="block px-4 py-2 rounded-lg text-base font-normal hover:bg-[#f3e9f4] focus:bg-[#f3e9f4] transition-colors duration-150">Newborn</Link>
+                      <Link href="/services/maternity" onClick={handleLinkClick} className="block px-4 py-2 rounded-lg text-base font-normal hover:bg-[#f3e9f4] focus:bg-[#f3e9f4] transition-colors duration-150">Maternity</Link>
+                      <Link href="/services/cake-smash" onClick={handleLinkClick} className="block px-4 py-2 rounded-lg text-base font-normal hover:bg-[#f3e9f4] focus:bg-[#f3e9f4] transition-colors duration-150">Cake Smash</Link>
+                      <Link href="/services/baby-toddler" onClick={handleLinkClick} className="block px-4 py-2 rounded-lg text-base font-normal hover:bg-[#f3e9f4] focus:bg-[#f3e9f4] transition-colors duration-150">Babies & Toddlers</Link>
+                      <Link href="/services/family" onClick={handleLinkClick} className="block px-4 py-2 rounded-lg text-base font-normal hover:bg-[#f3e9f4] focus:bg-[#f3e9f4] transition-colors duration-150">Family</Link>
+                    </div>
+                  </div>
+                  <Link
+                    href="/studio"
+                    onClick={handleLinkClick}
+                    className="flex items-center gap-3 text-lg rounded-xl hover:bg-[#F4EFCA] transition-colors px-4 py-3"
+                  >
+                     Studio & Props
                   </Link>
                   <Link
-                    href="/services/pregnancy"
+                    href="/blogs"
                     onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
+                    className="flex items-center gap-3 text-lg rounded-xl hover:bg-[#F4EFCA] transition-colors px-4 py-3"
                   >
-                    Pregnancy Photoshoot
+                     Blogs 
                   </Link>
                   <Link
-                    href="/services/newborn"
+                    href="/contact"
                     onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
+                    className="flex items-center gap-3 text-lg rounded-xl hover:bg-[#F4EFCA] transition-colors px-4 py-3"
                   >
-                    Newborn Photography
-                  </Link>
-                  <Link
-                    href="/services/baby-shoot"
-                    onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
-                  >
-                    Baby Shoot
-                  </Link>
-                  <Link
-                    href="/services/baby-photography"
-                    onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
-                  >
-                    Baby Photography (1 - 6 Month)
-                  </Link>
-                  <Link
-                    href="/services/family"
-                    onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
-                  >
-                    Family Photography
-                  </Link>
-                  <Link
-                    href="/services/growing-baby"
-                    onClick={handleLinkClick}
-                    className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
-                  >
-                    Growing Baby Photoshoot
+                    Contact Us
                   </Link>
                 </div>
               </div>
-
-              <Link
-                href="/studio"
-                onClick={handleLinkClick}
-                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
-              >
-                Studio & Props
-              </Link>
-              {/* Cinematography section, in case you want to showcase video shoots! 
-             <Link 
-                href="/cinematography" 
-                onClick={handleLinkClick}
-                className="block text-gray-800 hover:bg-[#F66435] hover:text-white transition-colors px-3 py-2 rounded"
-              >
-                Cinematography
-              </Link>*/}
-              <Link
-                href="/blogs"
-                onClick={handleLinkClick}
-                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
-              >
-                Blogs
-              </Link>
-              <Link
-                href="/contact"
-                onClick={handleLinkClick}
-                className="metallic-hover header-button-hover relative block px-3 py-2 rounded transition-colors"
-              >
-                Contact Us
-              </Link>
             </div>
-          </div>
-
-          {/* Overlay for clicking outside */}
-          {isOpen && (
-            <div
-              className="fixed inset-0 z-40 md:hidden"
-              onClick={() => setIsOpen(false)}
-            />
           )}
-        </div>
-      </div>
-    </nav>
-  );
-}
+          </div>
+          </div>
+        </nav>
+      );
+    }
