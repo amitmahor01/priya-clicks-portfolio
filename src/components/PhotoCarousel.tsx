@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { Carousel, Image as AntImage } from 'antd';
-import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 import cover1 from '../../assests/cover/cover1.webp';
 import cover2 from '../../assests/cover/cover2.webp';
