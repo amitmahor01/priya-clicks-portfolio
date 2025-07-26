@@ -54,7 +54,7 @@ ${formData.message}
                 subject: '',
                 message: ''
             });
-        } catch (error) {
+        } catch {
             setSubmitStatus('error');
         } finally {
             setIsSubmitting(false);
@@ -70,7 +70,7 @@ ${formData.message}
                         Get In Touch
                     </h1>
                     <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto px-2">
-                        Ready to capture your precious moments? Let's discuss your photography session and create beautiful memories together.
+                        Ready to capture your precious moments? Let&apos;s discuss your photography session and create beautiful memories together.
                     </p>
                 </div>
 
@@ -180,7 +180,7 @@ ${formData.message}
 
                             {submitStatus === 'success' && (
                                 <div className="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                                    Thank you! Your message has been sent successfully. We'll get back to you soon!
+                                    Thank you! Your message has been sent successfully. We&apos;ll get back to you soon!
                                 </div>
                             )}
 

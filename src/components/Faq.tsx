@@ -68,7 +68,8 @@ export default function Faq({ className = '' }: { className?: string }) {
           }
           .ant-collapse-content-box {
             padding: 1rem !important; /* padding-4 */
-            background: #a184a1 !important,
+            background: #a184a1 !important;
+            color: #f4efca !important;
             font-size: 1.15rem !important;
             line-height: 1.7 !important;
             letter-spacing: 0.01em;

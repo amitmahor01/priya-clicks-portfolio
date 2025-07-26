@@ -40,11 +40,11 @@ const PhotoCarousel = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="w-full h-auto p-4 sm:px-0">
-        <Carousel {...carouselSettings} className="h-full w-full">
+      <div className="w-full h-auto p-8 md:p-4 sm:px-0 max-w-full md:max-w-3xl lg:max-w-2xl">
+        <Carousel {...carouselSettings} className=" sm:h-[40vh] md:h-[14vh] lg:h-[20vh]">
           {images.map((img, idx) => (
             <div key={idx} className="h-full">
-              <div className="relative  sm:h-full aspect-[16/9] sm:aspect-auto">
+              <div className="relative sm:h-full aspect-[16/9] sm:aspect-auto">
                 <AntImage
                   src={img.src}
                   alt={`Photo ${idx + 1}`}
