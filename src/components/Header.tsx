@@ -5,24 +5,10 @@ import { useState, useEffect } from 'react';
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [show, setShow] = useState(true);
 
   const handleLinkClick = () => {
     setIsOpen(false);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setShow(true);
-      } else {
-        setShow(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useEffect(() => {
     if (isOpen) {
