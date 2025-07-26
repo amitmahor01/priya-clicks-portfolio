@@ -26,7 +26,7 @@ const PhotoCarousel = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
       {
@@ -39,11 +39,11 @@ const PhotoCarousel = () => {
   };
 
   return (
-    <div className="mx-auto w-full sm:w-[80%] h-[40vh] sm:h-[80vh]">
-      <Carousel {...carouselSettings} className="h-full">
+    <div className="mx-auto w-full sm:w-[80%] h-[40vh] sm:h-[80vh] flex justify-center items-center">
+      <Carousel {...carouselSettings} className="h-full w-full">
         {images.map((img, idx) => (
-          <div key={idx} className="p-1 sm:p-2 h-full">
-            <div className="relative h-40 sm:h-full aspect-[16/9] sm:aspect-auto">
+          <div key={idx} className="h-full">
+            <div className="relative h-40 sm:h-full aspect-[16/9] sm:aspect-auto mx-2 sm:mx-4">
               <AntImage
                 src={img.src}
                 alt={`Photo ${idx + 1}`}
@@ -66,14 +66,19 @@ const PhotoCarousel = () => {
       <style>{`
         .ant-carousel {
           height: 100%;
+          width: 100%;
         }
         .ant-carousel .slick-slider,
         .ant-carousel .slick-list,
         .ant-carousel .slick-track {
           height: 100%;
+          width: 100%;
         }
         .ant-carousel .slick-slide > div {
           height: 100%;
+          display: flex !important;
+          justify-content: center;
+          align-items: center;
         }
         .ant-image {
           width: 100%;
@@ -82,15 +87,34 @@ const PhotoCarousel = () => {
         .ant-image-mask {
           border-radius: 8px;
         }
-        .slick-dots {
-          height: 12px;
+        .ant-carousel .slick-dots {
+          z-index: 10 !important;
+          position: relative;
+          bottom: 10px;
         }
         .ant-carousel .slick-dots li button {
-          width: 20px;
-          height: 20px;
+          width: 20px !important;
+          height: 20px !important;
+          border-radius: 50% !important;
+          background: #b2b5e0 !important;
+          transition: background 0.3s;
+          padding: 0 !important;
+          line-height: 20px !important;
         }
         .ant-carousel .slick-dots li.slick-active button {
           background: #f66435 !important;
+        }
+        .ant-carousel .slick-arrow {
+          z-index: 10 !important;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .ant-carousel .slick-prev {
+          left: 10px;
+        }
+        .ant-carousel .slick-next {
+          right: 10px;
         }
       `}</style>
     </div>
