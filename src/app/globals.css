@@ -81,10 +81,13 @@ body {
 
 .heading-font {
   font-family: 'Ramaraja', serif;
+  font-weight: 600;
 }
 
-.body-font {
-  font-family: 'Quicksand', sans-serif;
+.lavishly-yours-regular {
+  font-family: "Lavishly Yours", cursive;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .cta-font, .meta-font {

@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Header() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`absolute z-41 flex items-center justify-center w-12 h-12 rounded-xl bg-white/80 shadow-lg font-extrabold transition-all duration-300
-                ${isOpen ? 'left-70 top-2' : 'left-0 top-2'}`}
+                ${isOpen ? 'left-76 top-2' : 'left-0 top-2'}`}
               aria-label="Toggle menu"
             >
               <span className={`block absolute w-6 h-0.5 bg-gray-800 transition-all duration-300 ${isOpen ? 'rotate-45 top-1/2' : '-translate-y-2'}`}></span>
@@ -88,18 +89,31 @@ export default function Header() {
           </div>
 
           {/* Mobile Modal Menu & Backdrop */}
-          {isOpen && (
-            <div className="absolute -left-4 top-0 w-[100vw] h-[100vh] z-40 flex items-start justify-start md:hidden">
-              {/* Backdrop */}
-              <div
-                className="absolute inset-0 w-full h-[100vh] backdrop-blur-lg transition-opacity duration-300"
-                onClick={() => setIsOpen(false)}
-              />
-              {/* Modal Side Menu */}
-              <div
-                className={`absolute top-0 -left-2 h-screen w-[83vw] max-w-xs bg-[#b496b4] z-50 transform transition-transform duration-300
-                  ${isOpen ? 'translate-x-0' : '-translate-x-full'} shadow-2xl rounded-r-2xl`}
-              >
+          <AnimatePresence>
+            {isOpen && (
+              <div className="absolute -left-4 top-0 w-[100vw] h-[100vh] z-40 flex items-start justify-start md:hidden">
+                {/* Backdrop */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute inset-0 w-full h-[100vh] backdrop-blur-lg"
+                  onClick={() => setIsOpen(false)}
+                />
+                {/* Modal Side Menu */}
+                <motion.div
+                  initial={{ x: '-100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '-100%' }}
+                  transition={{ 
+                    type: "tween", 
+                    stiffness: 400, 
+                    damping: 30,
+                    duration: 0.3
+                  }}
+                  className="absolute top-0 left-0 h-screen w-[83vw] max-w-xs bg-[#b496b4] z-50 shadow-2xl rounded-r-2xl"
+                >
                 <div className="px-4 py-8 flex flex-col gap-2 text-gray-800 bg-[#b496b4]">
                   <Link
                     href="/"
@@ -181,9 +195,10 @@ export default function Header() {
                     Contact Us
                   </Link>
                 </div>
-              </div>
+              </motion.div>
             </div>
           )}
+          </AnimatePresence>
           </div>
           </div>
         </nav>

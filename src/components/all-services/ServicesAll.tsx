@@ -1,6 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation';
-import ServicesTilesProps from './components/ServicesTilesProps';
+import ServicesTilesProps from '../../../components/ServicesTilesProps';
 import useHomepage from '../hooks/useHomepage';
 
 export default function ServicesAll() {

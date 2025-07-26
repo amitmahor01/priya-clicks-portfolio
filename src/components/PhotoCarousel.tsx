@@ -39,29 +39,31 @@ const PhotoCarousel = () => {
   };
 
   return (
-    <div className="mx-auto w-full sm:w-[80%] h-[40vh] sm:h-[80vh] flex justify-center items-center">
-      <Carousel {...carouselSettings} className="h-full w-full">
-        {images.map((img, idx) => (
-          <div key={idx} className="h-full">
-            <div className="relative h-40 sm:h-full aspect-[16/9] sm:aspect-auto mx-2 sm:mx-4">
-              <AntImage
-                src={img.src}
-                alt={`Photo ${idx + 1}`}
-                preview={{
-                  src: img.src,
-                  mask: 'Click to view',
-                }}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: '8px',
-                }}
-              />
+    <div className="w-full flex justify-center items-center">
+      <div className="w-full h-auto p-4 sm:px-0">
+        <Carousel {...carouselSettings} className="h-full w-full">
+          {images.map((img, idx) => (
+            <div key={idx} className="h-full">
+              <div className="relative  sm:h-full aspect-[16/9] sm:aspect-auto">
+                <AntImage
+                  src={img.src}
+                  alt={`Photo ${idx + 1}`}
+                  preview={{
+                    src: img.src,
+                    mask: 'Click to view',
+                  }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '8px',
+                  }}
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </Carousel>
+          ))}
+        </Carousel>
+      </div>
 
       <style>{`
         .ant-carousel {

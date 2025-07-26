@@ -13,7 +13,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative h-auto md:h-[calc(100vh-20rem)]">
         <div className="relative md:static inset-0 flex flex-col justify-center items-center text-center px-2 md:px-4 mt-8 md:mt-40">
-          <h1 className="heading-font text-2xl sm:text-4xl md:text-6xl font-extrabold text-primary mb-2 md:mb-4">
+          <h1 className="lavishly-yours-regular text-4xl sm:text-4xl md:text-6xl font-extrabold mb-2 md:mb-4">
             Priya Clicks Photography
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-secondary mb-4 md:mb-8 max-w-xs sm:max-w-2xl">
@@ -22,15 +22,15 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 p-2 sm:p-4 w-full sm:w-auto">
             <Link
               href="/portfolio"
-              className="body-button-hover meta-font text-base sm:text-xl font-bold px-4 py-2 sm:px-6 sm:py-3 rounded-lg group flex items-center justify-center w-full sm:w-auto"
+              className="body-button-hover meta-font text-base sm:text-xl font-bold px-4 py-2 sm:px-6 sm:py-3 rounded-lg group inline-flex items-center justify-center"
             >
               Book a Session
               <span
-                className="ml-2 mt-3 opacity-0 group-hover:opacity-100 transform group-hover:translate-y-[-8px] transition-all duration-300"
+                className="ml-2 mt-3 opacity-0 group-hover:opacity-100 transform group-hover:translate-y-[-8px] transition-all duration-300 flex-shrink-0"
                 style={{ display: "inline-flex" }}
               >
                 {/* multicolored camera svg */}
-                <span className="w-8 mt-1 h-8 inline-block">
+                <span className="w-8 mt-1 h-8 inline-block flex-shrink-0">
                   <svg viewBox="0 0 64 64" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="6" y="18" width="52" height="34" rx="6" fill="#B2B5E0" />
                     <rect x="14" y="10" width="12" height="8" rx="2" fill="#F66435" />

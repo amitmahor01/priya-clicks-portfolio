@@ -10,7 +10,7 @@ export default function Footer() {
                     {/* Logo Placeholder */}
                     <div className="mb-4">
                         {/* Replace with your logo if available */}
-                        <span className="heading-font text-3xl text-black font-bold">PriyaClicks</span>
+                        <span className="lavishly-yours-regular text-3xl text-black font-bold">PriyaClicks</span>
                     </div>
                     <blockquote className="body-font text-base md:text-lg text-black font-medium leading-relaxed mb-2">
                         “We don’t just take photographs — we freeze love, laughter, and life’s most tender moments into timeless memories.”
@@ -29,7 +29,7 @@ export default function Footer() {
                     </ul>
                 </div>
                 {/* Opening Hours (Third Column) */}
-                <div className="flex flex-col items-startflex flex-col items-center text-center md:items-start md:text-left">
+                <div className="flex items-startflex flex-col items-center text-center md:items-start md:text-left">
                     <h3 className="mb-4 text-lg font-extrabold text-gray-800">Opening Hours</h3>
                     <ul className="space-y-2 text-gray-700">
                         <li>Monday - Friday: 9 AM - 6 PM</li>
@@ -39,28 +39,7 @@ export default function Footer() {
                 </div>
                 {/* Contact & Social Links (Fourth Column) */}
                 <div className="flex flex-col items-center md:items-end">
-                    <h3 className="mb-4 text-lg font-extrabold text-gray-800">Contact</h3>
-                    <div className="flex space-x-6 mt-2 mb-8">
-
-                        <a href="mailto:priiyaclicks@gmail.com" title="Email" className=" ">
-                            <FontAwesomeIcon icon={icons.envelope} className="text-2xl text-white hover:scale-125 transition-transform hover:bg-black hover:rounded-sm hover:w-7" />
-                        </a>
-                        <a
-                            href="https://maps.app.goo.gl/srujddz6nxkJKoyd9"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            title="View Location on Google Maps"
-                            aria-label="Location on Google Maps"
-                        >
-                            <FontAwesomeIcon icon={icons.mapMarker} className="text-2xl text-[#EA4335] hover:scale-125 transition-transform" />
-                        </a>
-                        <a href="tel:+971585950475" title="Call" className=" transition-colors">
-                            <FontAwesomeIcon icon={icons.phone} className="text-2xl text-gray-700 hover:scale-125 transition-transform" />
-                        </a>
-                        <a href="https://api.whatsapp.com/message/NYOV5OZAEGG3H1" title="WhatsApp" target="_blank" rel="noopener noreferrer" className="hover:text-[#25D366] transition-colors">
-                            <FontAwesomeIcon icon={icons.whatsapp} className="text-2xl text-[#25D366] hover:scale-125 transition-transform hover:bg-white hover:rounded-full" />
-                        </a>
-                    </div>
+                    
                     <h3 className="mb-4 text-lg font-extrabold text-gray-800">Follow Us</h3>
                     <div className="flex space-x-6 mt-2">
                         <a
@@ -93,7 +72,10 @@ export default function Footer() {
                         >
                             <FontAwesomeIcon icon={icons.youtube} className="text-2xl hover:scale-125 transition-transform hover:bg-white hover:rounded-lg" bounce />
                         </a>
+                        
                     </div>
+                    <Link href={"/faq"} className='mt-5'><h3 className="mb-4 text-lg font-extrabold text-gray-800">FAQ</h3></Link>
+                    
                 </div>
             </div>
             <div className="mt-8 border-t border-gray-300 pt-4 text-center text-gray-600 text-sm">
